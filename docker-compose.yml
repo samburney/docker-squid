@@ -1,0 +1,14 @@
+version: '2.4'
+
+services:
+  squid:
+    image: 'samburney/squid:latest'
+    build: '.'
+    restart: 'unless-stopped'
+    environment:
+      TZ: 'Australia/Adelaide'
+    volumes:
+      - './data/squid.conf:/etc/squid/squid.conf'
+    ports:
+      - '3128:3128/tcp'
+    
